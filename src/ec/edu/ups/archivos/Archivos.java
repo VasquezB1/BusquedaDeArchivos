@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import sun.java2d.pipe.hw.AccelDeviceEventNotifier;
 
 /**
  *
@@ -208,6 +209,7 @@ public class Archivos extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        vaciarTabla();
         File direccion;
         //.trim elimina espacios tanto de derecha como izquierda
         direccion = new File(txturl.getText().trim());
@@ -238,14 +240,22 @@ public class Archivos extends javax.swing.JFrame {
                 }
 
             }
+           
         }
+      
+        
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void vaciarTabla() {
-        DefaultListModel modelo = (DefaultListModel) listacarpetas.getModel();
         
+        DefaultListModel listModel = (DefaultListModel)  listacarpetas.getModel();
+        listModel.removeAllElements();
+        DefaultListModel listModel2 = (DefaultListModel) listaarchivos.getModel();
+        listModel2.removeAllElements();
+        DefaultListModel listModel3 = (DefaultListModel) listaocultos.getModel();
+        listModel3.removeAllElements();
     }
 
 
